@@ -48,14 +48,14 @@
 						<tr class="paciente" id="third-pacient">
 							<td class="info-nome">Erica</td>
 							<td class="info-peso">54</td>
-							<td class="info-altura">2.65</td>
+							<td class="info-altura">1.76</td>
 							<td class="info-gordura">14</td>
 							<td class="info-imc">0</td>
 						</tr>
 
 						<tr class="paciente" id="fourth-pacient">
 							<td class="info-nome">Douglas</td>
-							<td class="info-peso">500</td>
+							<td class="info-peso">50</td>
 							<td class="info-altura">1.73</td>
 							<td class="info-gordura">24</td>
 							<td class="info-imc">0</td>
@@ -72,6 +72,29 @@
 
 			</section>
 		</main>
+		<section class="container">
+			<h2 id="titulo-form">Adicionar novo paciente</h2>
+			<form id="form-adiciona">
+				<div class="grupo">
+					<label for="nome">Nome:</label>
+					<input id="nome" name="nome" type="text" placeholder="digite o nome do seu paciente" class="campo">
+				</div>
+				<div class="grupo">
+					<label for="peso">Peso:</label>
+					<input id="peso" name="peso" type="text" placeholder="digite o peso do seu paciente" class="campo campo-medio">
+				</div>
+				<div class="grupo">
+					<label for="altura">Altura:</label>
+					<input id="altura" name="altura" type="text" placeholder="digite a altura do seu paciente" class="campo campo-medio">
+				</div>
+				<div class="grupo">
+					<label for="gordura">% de Gordura:</label>
+					<input id="gordura" type="text" placeholder="digite a porcentagem de gordura do seu paciente" class="campo campo-medio">
+				</div>
+		
+				<button id="adicionar-paciente" class="botao bto-principal">Adicionar</button>
+			</form>
+		</section>
 		<!-- Importação dos Javascripts AQUI -->
 		<script src="js/principal.js"></script>
 	</body s>
