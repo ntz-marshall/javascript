@@ -13,7 +13,10 @@ addBot.addEventListener("click", function (event) {
     var patientTr = createTr(patient)
     // adicionando o patient na table
     var table = document.querySelector("#tabela-pacientes");
+
     table.appendChild(patientTr);
+
+    form.reset();
 });
 
 function pacienteDoForm(form) {
@@ -32,26 +35,24 @@ function pacienteDoForm(form) {
 function createTr(patient) {
 
     var patientTr = document.createElement("tr");
+    patientTr.classList.add('paciente');
 
-    var nomeTd = document.createElement("td");
-    var pesoTd = document.createElement("td");
-    var alturaTd = document.createElement("td");
-    var gorduraTd = document.createElement("td");
-    var imcTd = document.createElement("td");
-
-    nomeTd.textContent = patient.nome;
-    pesoTd.textContent = patient.peso;
-    alturaTd.textContent = patient.altura;
-    gorduraTd.textContent = patient.gordura;
-    imcTd.textContent = patient.imc;
-
-    patientTr.appendChild(nomeTd);
-    patientTr.appendChild(pesoTd);
-    patientTr.appendChild(alturaTd);
-    patientTr.appendChild(gorduraTd);
-    patientTr.appendChild(imcTd);
+    patientTr.appendChild(createTd(patient.nome, 'info-nome'));
+    patientTr.appendChild(createTd(patient.peso, 'info-peso'));
+    patientTr.appendChild(createTd(patient.altura, 'info-altura'));
+    patientTr.appendChild(createTd(patient.gordura, 'info-gordura'));
+    patientTr.appendChild(createTd(patient.imc, 'info-imc'));
 
     return patientTr
+}
+
+function createTd(data, classe) {
+
+    var td = document.createElement("td");
+    td.textContent = data;
+    td.classList.add(classe);
+
+    return td;
 }
 
 /*  conceito de função anônima
