@@ -12,11 +12,21 @@ addBot.addEventListener("click", function (event) {
     // cria TR e TD do patient   
     var patientTr = createTr(patient)
     // adicionando o patient na table
+
+    var errors = validPatient(patient)
+    
+    if (errors.length > 0) {
+        errorMsgs(errors)
+        return
+    }
+
     var table = document.querySelector("#tabela-pacientes");
 
     table.appendChild(patientTr);
 
     form.reset();
+    var ul = document.querySelector('#msg-erro')
+    ul.innerHTML = ''
 });
 
 function pacienteDoForm(form) {
@@ -53,6 +63,31 @@ function createTd(data, classe) {
     td.classList.add(classe);
 
     return td;
+}
+
+function validPatient(patient) {
+
+    var errors = []
+    if (patient.nome.length == 0) errors.push('O nome não pode ser em branco!')
+    
+    if (!validedWeigth(patient.peso)) errors.push('Peso é inválido!')
+
+    if (!validedHeight(patient.altura)) errors.push('A altura é inválida!')
+    
+    if (patient.gordura.length == 0) errors.push('A gordura não pode ser em branco!')
+
+    return errors
+}
+
+function errorMsgs(errors) {
+    var ul = document.querySelector('#msg-erro')
+    ul.innerHTML = ''
+
+    errors.forEach(function(errors){
+        var li = document.createElement('li')
+        li.textContent = errors
+        ul.appendChild(li)
+    })
 }
 
 /*  conceito de função anônima

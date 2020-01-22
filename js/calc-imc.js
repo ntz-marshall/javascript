@@ -16,10 +16,10 @@ for (var i = 0; i < trPatient.length; i++) {
         
     var tdImc = patient.querySelector('.info-imc');
 
-    var validWeigth = true;
-    var validHeight = true;
+    var validWeigth = validedWeigth(weigth);
+    var validHeight = validedHeight(height);
 
-    if (weigth >= 450 || weigth <= 40) {
+    if (!validWeigth) {
         // || funciona como 'ou' dentro da condição diferente do && que funciona como 'e'
         console.log('Peso cadastrado inválido! Por favor verifique!');
         validWeigth = false;
@@ -29,7 +29,7 @@ for (var i = 0; i < trPatient.length; i++) {
             
     }
     
-    if (height <= 1.20 || height >= 2.50) {
+    if (!validHeight) {
 
         console.log('Altura cadastrado inválida! Por favor verifique!');
         validHeight = false;
@@ -60,4 +60,20 @@ function calcImc(weigth, height) {
 
     return imc.toFixed(2)
 
+}
+
+function validedWeigth(weigth) {
+    if (weigth >= 35 && weigth < 360) {
+        return true
+    } else {
+        return false
+    }
+}
+
+function validedHeight(height) {
+    if (height >= 1.30 && height < 2.30) {
+        return true
+    } else {
+        return false
+    }
 }
