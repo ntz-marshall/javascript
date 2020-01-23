@@ -143,3 +143,18 @@ button[disabled=disabled], button:disabled {
 	color: red;
 	font-weight: bold;
 }
+
+.fadeOut {
+	opacity: 0;
+	transition: 0.5s;
+}
+
+#table-filter {
+	width: 200px;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.invisible {
+	display: none;
+}
