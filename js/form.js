@@ -10,7 +10,7 @@ addBot.addEventListener("click", function (event) {
     // extraindo info do patient do form
     var patient = pacienteDoForm(form)
     // cria TR e TD do patient   
-    var patientTr = createTr(patient)
+    
     // adicionando o patient na table
 
     var errors = validPatient(patient)
@@ -20,14 +20,16 @@ addBot.addEventListener("click", function (event) {
         return
     }
 
-    var table = document.querySelector("#tabela-pacientes");
-
-    table.appendChild(patientTr);
-
     form.reset();
     var ul = document.querySelector('#msg-erro')
     ul.innerHTML = ''
 });
+
+function addPatientOnTable(patient) {
+    var patientTr = createTr(patient)
+    var table = document.querySelector("#tabela-pacientes");
+    table.appendChild(patientTr);
+}
 
 function pacienteDoForm(form) {
 
